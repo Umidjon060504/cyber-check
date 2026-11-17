@@ -10,31 +10,47 @@ const app = express()
 const PORT = process.env.PORT || 5000
 
 // =====================================
-// CORS — INTERNETDAGI FRONTEND
+// CORS — FRONTEND RUXSATLARI
 // =====================================
 
-const allowedOrigins = (process.env.FRONTEND_URLS || '')
+const allowedOrigins = new Set([
+  'https://cyber-check-git-main-umidjon060504.vercel.app',
+])
+
+// Render Environment ichidagi qo‘shimcha manzillar
+const extraOrigins = (process.env.FRONTEND_URLS || '')
   .split(',')
-  .map(origin => origin.trim().replace(/\/+$/, ''))
+  .map(value => {
+    try {
+      return new URL(value.trim()).origin.toLowerCase()
+    } catch {
+      return ''
+    }
+  })
   .filter(Boolean)
+
+extraOrigins.forEach(origin => allowedOrigins.add(origin))
 
 app.use(cors({
   origin(origin, callback) {
-    // Server-to-server va Postman so'rovlari
+    // Postman va serverdan kelgan so‘rovlar
     if (!origin) return callback(null, true)
 
-    // Lokal ishlab chiqish
-    const isLocalhost =
-      /^https?:\/\/localhost(:\d+)?$/.test(origin) ||
-      /^https?:\/\/127\.0\.0\.1(:\d+)?$/.test(origin)
+    const normalizedOrigin = origin.toLowerCase()
 
-    // Hostingda aniq ruxsat berilgan frontend
-    if (isLocalhost || allowedOrigins.includes(origin)) {
+    const isLocalhost =
+      /^https?:\/\/localhost(:\d+)?$/.test(normalizedOrigin) ||
+      /^https?:\/\/127\.0\.0\.1(:\d+)?$/.test(normalizedOrigin)
+
+    if (isLocalhost || allowedOrigins.has(normalizedOrigin)) {
       return callback(null, true)
     }
 
+    console.error('CORS blocked origin:', origin)
     return callback(new Error('CORS: Origin not allowed'))
   },
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }))
 
 app.disable('x-powered-by')
@@ -88,7 +104,6 @@ function isPrivateIPv6(ip) {
 
   if (mapped) return isPrivateIPv4(mapped[1])
 
-  // IPv4-mapped IPv6 ning boshqa yozilishlarini ham rad etamiz
   if (value.startsWith('::ffff:')) return true
 
   return false
@@ -341,7 +356,7 @@ app.use((error, req, res, next) => {
 
   return res.status(500).json({
     success: false,
-    error: 'Serverda xatolik yuz berdi.',
+    error: 'Serverda kutilmagan xatolik yuz berdi.',
   })
 })
 
