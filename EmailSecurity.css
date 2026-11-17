@@ -1,0 +1,285 @@
+
+/* EMAIL SECURITY ANALYSIS RESULTS */
+
+.email-analysis-result {
+  width: 100%;
+  min-width: 0;
+  padding-top: 18px;
+  overflow-wrap: anywhere;
+}
+
+.email-risk-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+  min-width: 0;
+}
+
+.email-risk-header > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.email-risk-header strong {
+  font-size: 13px;
+  letter-spacing: 0.8px;
+  line-height: 1.5;
+}
+
+.email-risk-header span {
+  color: #9aacc1;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.risk-low .email-risk-header {
+  color: #00d9a5;
+}
+
+.risk-medium .email-risk-header {
+  color: #ffbd59;
+}
+
+.risk-high .email-risk-header {
+  color: #ff526b;
+}
+
+/* RISK METER */
+
+.email-risk-meter {
+  width: 100%;
+  height: 9px;
+  overflow: hidden;
+  margin-bottom: 25px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.email-risk-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: #00d9a5;
+  transition: width 0.4s ease;
+}
+
+.risk-medium .email-risk-fill {
+  background: #ffbd59;
+}
+
+.risk-high .email-risk-fill {
+  background: #ff526b;
+}
+
+/* ANALYSIS DETAILS */
+
+.email-analysis-section {
+  margin-bottom: 22px;
+  min-width: 0;
+}
+
+.email-analysis-section > strong,
+.email-recommendation > strong {
+  display: block;
+  margin-bottom: 13px;
+  color: #d9e9fa;
+  font-size: 11px;
+  letter-spacing: 1px;
+  line-height: 1.6;
+}
+
+.email-analysis-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  color: #b6c7d9;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.035);
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+.email-analysis-item svg {
+  flex-shrink: 0;
+  color: #ffbd59;
+  margin-top: 3px;
+}
+
+.risk-low .email-analysis-item svg {
+  color: #00d9a5;
+}
+
+/* DETECTED LINKS */
+
+.email-detected-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  color: #8eeeff;
+  background: rgba(0, 229, 255, 0.06);
+  border: 1px solid rgba(0, 229, 255, 0.08);
+  font-size: 11px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  min-width: 0;
+}
+
+.email-detected-link svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* RECOMMENDATION */
+
+.email-recommendation {
+  padding: 17px;
+  margin-top: 20px;
+  border: 1px solid rgba(0, 229, 255, 0.15);
+  border-radius: 11px;
+  background: rgba(0, 229, 255, 0.04);
+  min-width: 0;
+}
+
+.email-recommendation p {
+  margin: 0;
+  color: #aabbd0;
+  font-size: 12px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+/* ANALYSIS NOTE */
+
+.email-analysis-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 17px;
+  color: #788ba3;
+  font-size: 10px;
+  line-height: 1.8;
+  min-width: 0;
+}
+
+.email-analysis-note svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .email-analysis-result {
+    padding-top: 15px;
+  }
+
+  .email-recommendation {
+    padding: 15px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .email-risk-header {
+    gap: 11px;
+    margin-bottom: 15px;
+  }
+
+  .email-risk-header strong {
+    font-size: 12px;
+  }
+
+  .email-risk-header span {
+    font-size: 11px;
+  }
+
+  .email-risk-meter {
+    height: 8px;
+    margin-bottom: 20px;
+  }
+
+  .email-analysis-section {
+    margin-bottom: 18px;
+  }
+
+  .email-analysis-section > strong,
+  .email-recommendation > strong {
+    font-size: 10px;
+    margin-bottom: 10px;
+  }
+
+  .email-analysis-item {
+    gap: 8px;
+    padding: 10px;
+    font-size: 11px;
+    line-height: 1.65;
+  }
+
+  .email-detected-link {
+    gap: 8px;
+    padding: 10px;
+    font-size: 10px;
+  }
+
+  .email-recommendation {
+    padding: 13px;
+    margin-top: 16px;
+  }
+
+  .email-recommendation p {
+    font-size: 11px;
+    line-height: 1.7;
+  }
+
+  .email-analysis-note {
+    gap: 7px;
+    margin-top: 14px;
+    font-size: 9px;
+  }
+}
+
+/* SMALL PHONES */
+
+@media (max-width: 380px) {
+  .email-risk-header {
+    gap: 8px;
+  }
+
+  .email-risk-header strong {
+    font-size: 11px;
+  }
+
+  .email-analysis-item {
+    padding: 9px;
+    font-size: 10px;
+  }
+
+  .email-detected-link {
+    padding: 9px;
+    font-size: 10px;
+  }
+
+  .email-recommendation {
+    padding: 11px;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .email-risk-fill {
+    transition: none;
+  }
+}

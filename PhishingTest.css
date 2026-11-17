@@ -1,0 +1,207 @@
+/* TABLET RESPONSIVENESS */
+@media (max-width: 900px) {
+  .phishing-test {
+    padding: 85px 5%;
+  }
+
+  .phishing-card {
+    padding: 30px;
+  }
+
+  .phishing-quiz h3 {
+    font-size: 19px;
+  }
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 600px) {
+  .phishing-test {
+    padding: 65px 4%;
+  }
+
+  .phishing-heading {
+    margin-bottom: 30px;
+  }
+
+  .phishing-heading h2 {
+    font-size: clamp(26px, 7vw, 36px);
+  }
+
+  .phishing-heading p {
+    font-size: 12px;
+  }
+
+  .phishing-card {
+    min-height: 0;
+    padding: 22px 16px;
+    border-radius: 14px;
+  }
+
+  .phishing-start,
+  .phishing-finished {
+    min-height: 320px;
+  }
+
+  .phishing-start-icon,
+  .phishing-finished-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 18px;
+  }
+
+  .phishing-start h3 {
+    font-size: 21px;
+  }
+
+  .phishing-start-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+    margin: 22px 0;
+  }
+
+  .phishing-start-stats > div {
+    padding: 13px 5px;
+  }
+
+  .phishing-start-stats strong {
+    font-size: 17px;
+  }
+
+  .phishing-start-stats span {
+    font-size: 8px;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+
+  .phishing-primary-button {
+    width: 100%;
+    min-height: 47px;
+    padding: 0 15px;
+    font-size: 10px;
+  }
+
+  .phishing-quiz-top {
+    font-size: 9px;
+    gap: 8px;
+  }
+
+  .phishing-progress {
+    margin-bottom: 25px;
+  }
+
+  .phishing-quiz h3 {
+    margin-bottom: 19px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .phishing-answers {
+    gap: 9px;
+  }
+
+  .phishing-answer {
+    min-height: 52px;
+    gap: 10px;
+    padding: 10px 11px;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .phishing-answer-letter {
+    width: 26px;
+    height: 26px;
+  }
+
+  .phishing-feedback {
+    margin-top: 17px;
+    padding: 13px;
+  }
+
+  .phishing-feedback p {
+    font-size: 11px;
+  }
+
+  .phishing-next-button {
+    margin-top: 17px;
+  }
+
+  .phishing-finished h3 {
+    font-size: 52px;
+  }
+
+  .phishing-result-stats {
+    gap: 8px;
+    margin: 20px 0;
+  }
+
+  .phishing-result-stats > div {
+    padding: 13px 8px;
+  }
+
+  .phishing-result-stats strong {
+    font-size: 19px;
+  }
+
+  .phishing-result-stats span {
+    font-size: 9px;
+  }
+}
+
+/* SMALL PHONES */
+@media (max-width: 380px) {
+  .phishing-test {
+    padding: 55px 3%;
+  }
+
+  .phishing-card {
+    padding: 18px 12px;
+  }
+
+  .phishing-tag {
+    padding: 7px 11px;
+    font-size: 9px;
+  }
+
+  .phishing-heading h2 {
+    font-size: 25px;
+  }
+
+  .phishing-start-stats span {
+    font-size: 7px;
+  }
+
+  .phishing-answer {
+    gap: 8px;
+    padding: 9px;
+    font-size: 10px;
+  }
+
+  .phishing-answer-letter {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+  }
+
+  .phishing-finished h3 {
+    font-size: 45px;
+  }
+}
+
+/* ACCESSIBILITY */
+.phishing-answer:focus-visible,
+.phishing-primary-button:focus-visible {
+  outline: 2px solid #00e5ff;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .phishing-primary-button,
+  .phishing-answer,
+  .phishing-progress > div {
+    transition: none;
+  }
+
+  .phishing-primary-button:hover {
+    transform: none;
+  }
+}
